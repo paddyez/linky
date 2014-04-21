@@ -67,21 +67,21 @@ public final class WikiLinksPlugin extends PluginBase {
 		wikiByShortcut	= new HashMap<String, Wiki>();
 		
 		// the * character in the URL is replaced with the language code.
-		addWiki("wikipedia",	"w",		"UTF-8",	"http://*.wikipedia.org/wiki/");
-		addWiki("meta",			"m",		"UTF-8",	"http://meta.wikimedia.org/wiki/");
-		addWiki("commons",		"c",		"UTF-8",	"http://commons.wikimedia.org/wiki/");
-		addWiki("wikibooks",	"b",		"UTF-8",	"http://*.wikibooks.org/wiki/");			
-		addWiki("wikiquote",	"q",		"UTF-8",	"http://*.wikiquote.org/wiki/");			
-		addWiki("wiktionary",	"wikt",		"UTF-8",	"http://*.wiktionary.org/wiki/");				
-		addWiki("wikisource",	"s",		"UTF-8",	"http://*.wikisource.org/wiki/");
+		addWiki("wikipedia",	"w",		"UTF-8",	"https://*.wikipedia.org/wiki/");
+		addWiki("meta",			"m",		"UTF-8",	"https://meta.wikimedia.org/wiki/");
+		addWiki("commons",		"c",		"UTF-8",	"https://commons.wikimedia.org/wiki/");
+		addWiki("wikibooks",	"b",		"UTF-8",	"https://*.wikibooks.org/wiki/");			
+		addWiki("wikiquote",	"q",		"UTF-8",	"https://*.wikiquote.org/wiki/");			
+		addWiki("wiktionary",	"wikt",		"UTF-8",	"https://*.wiktionary.org/wiki/");				
+		addWiki("wikisource",	"s",		"UTF-8",	"https://*.wikisource.org/wiki/");
 		addWiki("wikinews",		"n",		"UTF-8",	"http://*.wikinews.org/wiki/");				
-		addWiki("wikiversity",	"v",		"UTF-8",	"http://*.wikiversity.org/wiki/");				
-		addWiki("kamelopedia",	"kamelo",	"UTF-8",	"http://kamelopedia.mormo.org/index.php/");
+		addWiki("wikiversity",	"v",		"UTF-8",	"https://*.wikiversity.org/wiki/");				
+		addWiki("kamelopedia",	"kamelo",	"UTF-8",	"https://kamelopedia.mormo.org/index.php/");
 		addWiki("intern",		"rk",		"UTF-8",	"https://intern.wikimedia.de/wiki/");
-		addWiki("wikipress",	"pr",		"UTF-8",	"http://wikipress.wikidev.net/");
+		addWiki("wikipress",	"pr",		"UTF-8",	"https://wikipress.wikidev.net/");
 		// special
-		addWiki("wikiweise",	"ww",		"UTF-8",	"http://www.wikiweise.de/wiki/");
-		addWiki("bugzilla",		"bug",		"UTF-8",	"http://bugzilla.wikimedia.org/show_bug.cgi?id=");
+		addWiki("wikiweise",	"ww",		"UTF-8",	"https://www.wikiweise.de/wiki/");
+		addWiki("bugzilla",		"bug",		"UTF-8",	"https://bugzilla.wikimedia.org/show_bug.cgi?id=");
 		addWiki("otrs",			"o",		"UTF-8",	"https://secure.wikimedia.org/otrs/index.pl?Action=AgentTicketZoom&TicketNumber=");
 		
 		String defaultWikiId 		= context.config().getString("defaultWiki");
