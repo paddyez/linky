@@ -1,0 +1,50 @@
+<h2>abstract</h2>
+<p>
+linky is a little irc-bot consisting of a small framework and set of modules.
+at the moment, linky speaks german, english and polish. it is possible to run
+multiple, completely separate personalities within a single java-VM.
+</p>
+<p>
+existing modules can expand <a href="http://wikipedia.sourceforge.net/">MediaWiki</a>-links,
+store simple factoids and support seen-queries and online-help.
+</p>
+<p>
+linky is written in java and uses the <a href="http://www.jibble.org/pircbot.php">pircbot</a>-framework to connect to an IRC-server. 
+</p>
+
+<h2>contact</h2>
+<p>
+the dot gray at gmx dot net (write in english or german)
+</p>
+
+<h2>license</h2>
+<p>
+linky is released under the <a href="http://www.gnu.org/copyleft/gpl.html">GPL</a>.
+</p>
+
+<h2>requirements</h2>
+<table>
+<tr><td>JRE 1.6.0 or newer</td><td><a href="http://java.sun.com/javase/">http://java.sun.com/javase/</a></td></tr>
+</table>
+
+<h2>download</h2>
+<p>
+<a href="$(project)-$(version).zip">$(project)-$(version).zip</a> (sources included)
+</p>
+<p>
+see <a href="changes.txt">changes.txt</a> for changes in version $(version).
+</p>
+
+<h2>usage</h2>
+<ol>
+<li>download linky-$(version).zip and unpack it into a new directory</li>
+<li><code>cd</code> into the directory where you unpacked the zip</li>
+<li>modify <code>data/linky.properties</code> according to your needs. 
+especially *.plugin.Owner.initialOwnerName and *.plugin.Owner.initialOwnerPass</li>
+<li>on linux or mac os x start linky with<br />
+	<code>$ bin/linky</code></li>
+<li>on windows start it with<br />
+	<code>$ bin\linky.bat</code></li>
+<li>join the channel the bot is configured to be in</li>
+<li>type <code>!hilfe</code> (or <code>!help</code>)</li>
+</ol>

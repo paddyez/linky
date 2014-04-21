@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="linky" default="compile" basedir=".">
+	<!-- ==== configuration ==== -->
+
+	<property environment="env"/>
+	<property file="${user.home}/.build.properties"/>	<!-- these override the project local version -->	
+	<property file="build.properties"/>	
+	
+	<!-- ==== main ==== -->
+	
+	<target name="clean" description="delete files that can be rebuilt">
+		<delete dir="build"/>
+	</target>
+	
+	<!-- ==== compile ==== -->
+	
+	<target name="compile" description="compile java classes/">
+		<mkdir dir="build/classes"/>
+		<javac
+			srcdir="src"
+			destdir="build/classes"
+			extdirs="lib"
+			source="${java.source}"
+			target="${java.target}"
+			encoding="${java.encoding}"
+			deprecation="true"
+			debug="true"
+		/>
+	</target>
+	
+	<target name="doc" description="prepare documentation files">
+		<mkdir dir="build/doc"/>
+		<fixcrlf  srcDir="doc" destDir="build/doc" includes="changes.txt,index.html"
+			tab="remove" tablength="4" eol="crlf" eof="remove" encoding="ISO-8859-1" fixlast="true" />
+		<replace file="build/doc/index.html" token="$(project)" value="${project}"/>
+		<replace file="build/doc/index.html" token="$(version)" value="${version}"/>
+	</target>
+	
+	<target name="filter" description="prepares distributable personality files">
+		<mkdir dir="build/data/personality"/>
+		<copy todir="build/data/personality">
+			<fileset dir="data/personality" />
+		</copy>
+		<replace 
+				dir="build/data/personality" 
+				encoding="ISO-8859-1" 
+				token="@version@" 
+				value="${version}" 
+				summary="true"
+		/>
+	</target>
+
+	<!-- ==== pack ==== -->
+	
+	<target name="dist" depends="compile,filter" description="puts everything that's needed for development into a zip file">
+		<zip zipfile="build/${project}-${version}.zip">
+			<zipfileset dir="." filemode="770"	includes="bin/linky,bin/linky.bat"/>
+			<zipfileset dir=".">
+				<include name="build.properties"/>
+				<include name="build.xml"/>
+				<include name="doc/index.html"/>
+				<include name="doc/changes.txt"/>
+				<include name="data/plugin/**"/>
+				<include name="data/linky_dist.properties"/>	<!-- to make the dist task work -->
+				<include name="src/**"/>
+				<include name="build/classes/**"/>
+				<include name="lib/*"/>
+			</zipfileset>
+			<zipfileset dir="build">
+				<include name="data/personality/wikibot/**"/>
+			</zipfileset>
+			<zipfileset dir="."	fullpath="data/linky.properties"	includes="data/linky_dist.properties"/>
+		</zip>
+	</target>
+	
+	<target name="prod" depends="compile,filter" description="puts everything that's needed at runtime into a zip file">
+		<zip zipfile="build/${project}-prod.zip">
+			<zipfileset dir="." filemode="770"	includes="bin/linky,bin/linky.bat"/>
+			<zipfileset dir=".">
+				<include name="build.properties"/>
+				<include name="build.xml"/>
+				<include name="doc/index.html"/>
+				<include name="doc/changes.txt"/>
+				<include name="data/plugin/**"/>
+				<include name="build/classes/**"/>
+				<include name="lib/*"/>
+			</zipfileset>
+			<zipfileset dir="build">
+				<include name="data/personality/linky/**"/>
+				<include name="data/personality/botolino/**"/>
+			</zipfileset>
+			<zipfileset dir="."	fullpath="data/linky.properties"	includes="data/linky_prod.properties"/>
+		</zip>
+	</target>
+	
+	<!-- ==== export ==== -->
+	
+	<target name="import" description="import artefacts from other projects">
+		<ant dir="../util" antfile="build.xml" target="export" inheritAll="false"/>
+		<copy toDir="lib">
+			<fileset dir="../util/build/export" includes="lib-util.jar,lib-util-src.jar"/>
+		</copy>
+	</target>
+	
+	<target name="export" depends="dist,doc" description="create artefacts">
+		<property name="export.dir" value="build/export"/>
+		<mkdir dir="${export.dir}"/>
+		<copy todir="${export.dir}">
+			<fileset dir="build/doc"	includes="changes.txt,index.html"/>
+			<fileset dir="build"		includes="${project}-${version}.zip"/>
+		</copy>
+	</target>
+</project>

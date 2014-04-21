@@ -1,0 +1,280 @@
+0.69
+	bugfix		main			bootstrapping the initial owner did not work
+	
+0.68
+	bugfix		main			query-only commands did not work if the nickname
+								contained a dash character
+								
+0.67
+	feature		Factoid			replaces $0 with the user talking to the bot and
+								$1..n with words after the learned keyword
+	feature		main			added a new syntax element "multi", similar to
+								"text" but split into an array on whitespace
+								
+0.66
+	bugfix		proxy			the topic command allowed only a single word	
+	change		owner			fixed an NPE occuring when a non-owner tried to
+								login
+
+0.65
+	change		owner			added a jump command to switch servers.
+								attention: you need to adapt the server data in
+								your personality.properties
+	change		all				needs java 6 now
+
+0.64
+	change		all				increased the message delay to 1.5 seconds
+	change		help			removed plugin headlines to shorten help output
+
+0.63
+	bugfix		fallback		re-enabled, the factoid plugin does not
+								recognize more than one word
+
+0.62
+	change		all				dropped the Name: prefix from all replies
+
+0.61
+	change		factoid			the german and english syntax for direct
+								answers and actions has been changed
+	change		factoid			the factoid plugin replies without the need 
+								any "?" after the query now. the fallback 
+								plugin should be disabled if the factoid plugin
+								is active.
+
+0.60
+	bugfix		main			command syntax weights were ignored
+
+0.59
+	change		Identify		nickserv registration is done by the new
+								Identify plugin now
+	change		main			plugin directories are no longer lower-case
+	refactoring	main			every plugin now has its own properties file
+								named plugin.properties containing default 
+								values. these may be overwritten in the
+								personality.properties
+	refactoring	main			every personality now has its own directory
+								below data/personality now containing a 
+								properties file named personality.properties
+	bugfix		Channel			could not print its status
+	feature		WikiLinks		added OTRS-numbers for [[o:number]] links
+
+0.58 
+	attention	main			adapt you linky.properties, the channels to 
+								be joined moved to a different key
+	bufix		main			missing nickserv-properties in the linky.properties
+								lead to an exception
+	bugfix		main			linky.properties had wrong permissions
+								and the necessary fallback plugin were missing
+	feature		Channel			a new plugin persists joined channels
+	bugfix		main			reconnecting to an IRC-server did not work
+								for a password-protected server	
+	bugfix		WikiLinks		recognizes subst: and : at the start now
+	refactoring	main			ConnectionEvents have been dropped,
+								Plugins return a ConnectionHandler now
+	refactoring	main			plugin classes are now configured in the
+								linky.properties
+	refactoring	main			renamed Bot to Connection, changed Target flags 
+								to public booleans
+	change		Owner			removed the ident command. use the proxy plugin.
+	
+0.57
+	bugfix		main			commands without parameters triggered the 
+								Fallback plugin
+	change		main			command weight is no longer calculated. it can 
+								be set with a property, the default is 0.
+
+0.56
+	change		main			added onJoin and onPart events for Plugins
+	change		main			moved not-understood-message into a Fallback
+								plugin
+	change		main			more refactoring around Command parsing
+
+0.55
+	change		main			major refactoring. started a plugin API, 
+								reworked permission system.
+	attention	main			please add the new "visible" and "allowed" 
+								lines to your linky.properties
+	
+0.54
+	change		main			re-added java sources
+	attention	main			please put a line like this in your
+								linky.properties:
+								<personality>.irc.password=
+								if you get NullPointerExceptions on startup
+
+0.53
+	change		main			no more beanshell. no more vogen. 
+								ported to java.
+--------------------------------------------------------------------------------
+0.52
+	change		main			support new vogen syntax
+
+0.51
+	feature		WikiLinks		supports wikiversity (v) now
+	change		WikiLinks		kamelopedia can now be linked with kamelo: 
+								instead of k:
+	change		WikiLinks		kamelopedia is no longer considered 
+								multilingual
+
+0.50
+	bugfix		Time			replaced Greenwich (Mean Time) with
+								London/Europe
+
+0.49
+	change		WikiLinks		wikisource is multilingual now
+
+0.48
+	feature		main			replaced the registered property in 
+								linky.properties with register.at and 
+								register.with so not only freenode can be used
+	feature		main			added a password property to linky.properties 
+								for IRC authentication
+
+0.47
+	feature		WikiLinks		added preliminary support for {{template}}
+
+0.46
+	feature		Tell			written
+
+0.45
+	feature		WikiLinks		added bugzilla (bug) "wiki"
+
+0.44
+	feature		WikiLinks		added wikipress (pr) wiki
+
+0.43
+	feature		WikiLinks		added intern (rk) wiki
+
+0.42
+	change		main			renamed bsh-2.0b2.jar to bsh-2.0b2-fixed.jar 
+								which really does fix the memleak mentioned 
+								before
+	change		WikiLinks		wikiweise does not accept + for a space, 
+								only %20 
+
+0.41
+	feature		main			the port number of the IRC-server is 
+								configurable now
+
+0.40
+	change		WikiLinks		wikipedia:da and wikipedia:sv switched from 
+								ISO-8859-1 to UTF-8
+
+0.39
+	change		main			switched to my patched version of 
+								bsh-2.0b2.jar, we may have had a memory leak
+	change		WikiLinks		wikipedia:en and wikipedia:nl switched from
+								ISO-8859-1 to UTF-8
+
+0.38
+	bugfix		main			some more polish, factoids have not been 
+								translated yet
+	bugfix		main			reconnecting after a server failure did not 
+								work
+	
+0.37
+	feature		main			Tomasz Sienicki made a polish locale for linky
+	change		WikiLinks		wikiweise URLs are no longer mangled
+
+0.36
+	bugfix		WikiLinks		wikiwise does not canonicalize spaces as 
+								underscore
+
+0.35
+	bugfix		main			downgraded BeanShell to version 2.0b2 because 
+								of a 
+								bug which allowed anyone to execute owner 
+								commands
+
+0.34
+	feature		WikiLinks		can link to wikiweise (ww) now.
+
+0.33
+	change		WikiLinks		no ?redirect=no for WP: shortcuts on wikipedia
+
+0.32
+	bugfix		main			Exception logging was broken
+
+0.31
+	change		main			updated BeanShell to version 2.0b4
+
+0.30
+	feature		main			can register with nickserv on connect now
+	change		WikiLinks		accepts c: as a shortcut for commons: now
+
+0.29
+	refactoring	main			made all directories relative to the installation
+	change		main			data/configuration.bsh has been replaced with 
+								data/linky.properties
+	feature		main			added support for multiple personalities
+
+0.28
+	change		WikiLinks		no ?redirect=no is appended for pages containing a #
+	change		main			updated BeanShell to version 2.0b2		
+	change		plugins			moved constants from plugins into configuration.bsh
+
+0.27
+	change		WikiLinks		project names are case-insensitive again.
+								collisions with the meta-namespace of the 
+								project no longer happen.
+	change		WikiLinks		added n: as a shortcut for wikinews:
+
+0.26		
+	bugfix		WikiLinks		project names are case-sensitive again, because f.e.
+								Wikipedia exists as a project and a namespace, so
+								the bot cannot know which is meant otherwise
+
+0.25		
+	bugfix		Factoid			does not save any characters between 0 and 31,
+								because they are stored as invalid xml by xstream
+
+0.24
+	bugfix		WikiLinks		project names and languages were not treated 
+								case-insenitive
+	change						made some cleanups for an initial public release
+
+0.23
+	bugfix		WikiLinks		interwiki prefixes are no longer case-sensitive
+
+0.22
+	bugfix		Owner			kicked message no longer sent when other people
+								are kicked from the channel
+
+0.21
+	feature		Owner			auto rejoin after a kick or disconnect
+	feature		Help			the version number is now included in the status
+	bugfix		Owner			status output in the owner plugin works, now
+	feature		WikiLinks		learned wikinews: links
+
+0.20
+	bugfix		Factoid			the learnAction command did not work
+
+0.19
+	change		WikiLinks		wikisource.org changed its name
+
+0.18
+	bugfix		WikiLinks		does not url-encode '#' any more
+	feature		Time			shows midnight with || now
+
+0.17
+	bugfix		Factoid			made the topic letter lowercase
+
+0.16
+	feature		Help			help is in all cease given in private
+	refactoring	EventManager	more elegant dispatch
+	bugfix		Help			produced Excess Flood 
+
+0.15
+	bugfix		Factoid			forgetting factoid did not work
+	change		Proxy			split away from the OwnerPlugin
+
+0.14
+	feature		WikiLinks		expands commons now
+	bugfix		Owner			autoLogout does did logout owners too early
+	feature		Owner			can add, remove and list owners now
+	feature		WikiLink		shows whether expandion is on in its status output
+
+0.13
+	feature		Factoid			can do actions now
+	change		Factoid			has changed its syntax 
+	feature		Owner			now can change a channels topic
