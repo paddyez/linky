@@ -1,5 +1,5 @@
-==linky==
-===abstract===
+## linky
+### abstract
 
 linky is a little irc-bot consisting of a small framework and set of modules. at the moment, linky speaks german, english and polish. it is possible to run multiple, completely separate personalities within a single java-VM.
 
@@ -7,19 +7,19 @@ existing modules can expand MediaWiki-links, store simple factoids and support s
 
 linky is written in java and uses the pircbot-framework to connect to an IRC-server.
 
-===contact===
+### contact
 
 the dot gray at gmx dot net (write in english or german)
 
-===license===
+### license
 
 linky is released under the GPL.
 
-===requirements===
+### requirements
 
 JRE 1.6.0 or newer	http://java.sun.com/javase/
 
-===usage===
+### usage
 
     modify data/linky.properties according to your needs. especially *.plugin.Owner.initialOwnerName and *.plugin.Owner.initialOwnerPass
     on linux or mac os x start linky with
