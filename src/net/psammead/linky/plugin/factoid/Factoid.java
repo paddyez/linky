@@ -2,14 +2,19 @@ package net.psammead.linky.plugin.factoid;
 
 import java.util.*;
 
-public final class Factoid {
-	public final String	channel;
-	public final String	author;
-	public final Date	added;
-	public final String	topic;
-	public final String	text;
-	public final int	type;
+public class Factoid {
+	public String	channel;
+	public String	author;
+	public Date	added;
+	public String	topic;
+	public String	text;
+	public int	type;
 
+	/** default constructor	 */
+	public Factoid() {
+		
+	}
+	
 	/** all value constructor */
 	public Factoid(
 		String	channel,
