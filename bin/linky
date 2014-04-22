@@ -3,4 +3,4 @@
 
 cd "$(dirname "$0")/.."
 [ ! -d "build/classes" ] && ant compile
-java -cp lib/pircbot-bin.jar:lib/xstream-1.2.2.jar:lib/lib-util.jar:build/classes net.psammead.linky.Linky
+java -cp lib/pircbot-bin.jar:lib/xstream-1.4.7.jar:lib/lib-util.jar:build/classes net.psammead.linky.Linky
