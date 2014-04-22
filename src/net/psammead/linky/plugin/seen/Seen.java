@@ -5,24 +5,17 @@
 import java.util.*;
 
 /** generated class */
-public class Seen {
+public final class Seen {
 	//------------------------------------------------------------------------------
 	//## fields
 
-	private String	channel;
-	private String	nick;
-	private Date	lastPost;
+	private final String	channel;
+	private final String	nick;
+	private final Date	lastPost;
 
 	//------------------------------------------------------------------------------
 	//## constructors
 	
-	/** default constructor */
-	public Seen() {
-		channel	= null;
-		nick	= null;
-		lastPost	= null;
-	}
-
 	/** all value constructor */
 	public Seen(
 		String	channel,
@@ -41,12 +34,6 @@ public class Seen {
 	public String	getNick()	{ return nick; }
 	public Date	getLastPost()	{ return lastPost; }
 
-	//------------------------------------------------------------------------------
-	//## setter methods
-
-	public void setChannel(String channel)	{ this.channel = channel; }
-	public void setNick(String nick)	{ this.nick = nick; }
-	public void setLastPost(Date lastPost)	{ this.lastPost = lastPost; }
 
 	//------------------------------------------------------------------------------
 	//## default methods
