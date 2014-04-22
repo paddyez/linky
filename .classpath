@@ -6,5 +6,5 @@
 	<classpathentry kind="lib" path="lib/pircbot-bin.jar"/>
 	<classpathentry kind="lib" path="lib/xstream-1.2.2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="output" path="build/classes"/>
 </classpath>
